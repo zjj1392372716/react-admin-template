@@ -1,0 +1,30 @@
+.navLeft-wrapper {
+  width: 100%;
+  height: 100%;
+}
+.navLeft-wrapper .logo_header {
+  width: 100%;
+  color: #fff;
+  box-sizing: border-box;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #092742;
+  text-align: center;
+}
+.navLeft-wrapper .logo_header img {
+  width: 50px;
+  height: 50px;
+}
+.navLeft-wrapper .logo_header .logo-title {
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 800;
+  height: 100%;
+  white-space: nowrap;
+  margin-left: 16px;
+}

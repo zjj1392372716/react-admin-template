@@ -37,9 +37,18 @@ class NavLeft extends Component {
   }
 
   componentWillMount() {
+    let sessionRole = window.sessionStorage.getItem("ROLE");
+    let menuList = [];
+    if(sessionRole === "STUDENT") {
+      menuList = MenuConfig.menuList1;
+    } else if(sessionRole === "TEACHER"){
+      menuList = MenuConfig.menuList2;
+    } else {
+      menuList = MenuConfig.menuList3;
+    }
     // 记录key值
     this.rootSubmenuKeys = []
-    MenuConfig.forEach((item, index) => {
+    menuList.forEach((item, index) => {
       item.key = item.key + ""
       this.rootSubmenuKeys.push(item.key)
       if(index === 0) {
@@ -50,7 +59,7 @@ class NavLeft extends Component {
     })
 
     // 渲染节点树
-    const menuTreeNode = this.renderMenu(MenuConfig)
+    const menuTreeNode = this.renderMenu(menuList)
     this.setState({
       menuTreeNode
     })

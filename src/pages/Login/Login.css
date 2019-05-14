@@ -11,6 +11,11 @@
   font-size: 12px;
   letter-spacing: 0.15em;
 }
+.login-page .radio-wrapper {
+  text-align: center;
+  display: flex;
+  justify-content: flex-end;
+}
 .login-page .ant-input-lg,
 .login-page .ant-btn-lg {
   height: 40px;
@@ -18,7 +23,6 @@
 }
 .login-page .login-form-button {
   width: 100%;
-  margin-top: 15px;
 }
 .login-header {
   position: fixed;

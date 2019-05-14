@@ -1,11 +1,12 @@
 import React from 'react';
 import './Login.less';
-import {Form, Input, Button} from 'antd'
-// import api from '../../http/api';
-// import Utils from '../../utils/utils';
+import {Form, Input, Button, Radio} from 'antd'
+import api from '../../http/api';
+import Utils from '../../utils/utils';
 import proConfig from '../../config/proj.config.js';
 const FormItem = Form.Item;
-
+const RadioButton = Radio.Button;
+const RadioGroup = Radio.Group;
 // 登陆页面
 export default class Login extends React.Component {
   constructor () {
@@ -16,7 +17,29 @@ export default class Login extends React.Component {
   }
 
   goLogin = (val) => {
-    window.location.href = '/#/admin/home';
+    // 其他身份登陆
+    console.log(val);
+
+    api.Admin.login({
+        username: val.username,
+        password: val.password
+    }).then((res) => {
+        if(res.status === 1) {
+            window.sessionStorage.setItem("TOKEN", res.data.token);
+            window.sessionStorage.setItem("USERNAME", res.data.username);
+            window.sessionStorage.setItem("ROlEID", res.data.roleId);
+            Utils.openNotification('success', '登陆成功！');
+            if(val.role) {
+              window.sessionStorage.setItem("ROLE", val.role);
+            }
+            setTimeout(() => {
+                window.location.href = '/#/admin/home';
+            }, 500)
+        } else {
+            Utils.openNotification('error', '登陆失败，请重新登陆');
+        }
+    })
+
   }
 
   render () {
@@ -59,9 +82,11 @@ class LoginForm extends React.Component {
     this.props.form.validateFieldsAndScroll((err, values) => {
       if(!err) {
         var formValue = _this.props.form.getFieldsValue(); // 获取表单数据
+        console.log(formValue);
         _this.props.loginSubmit({
           username: formValue.username,
-          password: formValue.password
+          password: formValue.password,
+          role: formValue.role
         })
       }
     })
@@ -110,9 +135,27 @@ class LoginForm extends React.Component {
                 }
               ]
             })(
-              <Input placeholder="请输入密码" />
+              <Input type="password"  placeholder="请输入密码" />
             )
           }
+        </FormItem>
+        <FormItem>
+          {
+            getFieldDecorator('role', {
+              initialValue: 'STUDENT',
+              rules: [
+                {
+                  validator: this.checkPassword
+                }
+              ]
+            })(
+              <RadioGroup className="radio-wrapper">
+              <RadioButton value="STUDENT" >学生</RadioButton>
+                <RadioButton value="TEACHER">教师</RadioButton>
+              </RadioGroup>
+            )
+          }
+          
         </FormItem>
         <FormItem>
           <Button type="primary" onClick={this.loginSubmit} className="login-form-button">

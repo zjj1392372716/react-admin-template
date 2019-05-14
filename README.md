@@ -31,10 +31,4 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 关于项目的一些配置可以去 `/src/config` 目录下进行修改。
 
-## 效果预览
-
-![](./yulan1.jpg)
-
-
-![](./yulan.jpg)
 

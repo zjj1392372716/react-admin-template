@@ -5,11 +5,11 @@
 const config = {
   thirdPartyHost: {
     weather: 'http://t.weather.sojson.com/api/' // 第三方host,这里是天气接口使用
-  }, 
+  },
   AK: 'Xx5fgSLlpBHHhMkQMPweStanWabh0fvc',
   method: 'post', // 默认方法是post
-  baseURL: 'http://localhost:3000/api', // 基础请求 host 
-  baseHost: 'http://localhost:3000', // 域名 + 端口
+  baseURL: 'http://localhost:8020/oa', // 基础请求 host
+  baseHost: 'http://localhost:8020/oa', // 域名 + 端口
   // 请求头信息
   headers: {
     'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'

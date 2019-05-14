@@ -80,26 +80,16 @@ Utils.getOptionList = function (data) {
 }
 
 // 处理分类标签
-Utils.obj2 = (list) => {
+Utils.obj2 = (list, key, value) => {
   let resultObj = {};
   list.forEach((item, index) => {
-    let key = item.newLId;
-    let val = item.labelName;
-    resultObj[key] = val;
+    let key1 = item[key];
+    let val = item[value];
+    resultObj[key1] = val;
   })
   return resultObj;
 }
 
-// 处理分类标签
-Utils.obj3 = (list) => {
-    let resultObj = {};
-    list.forEach((item, index) => {
-        let key = item.lawSortId;
-        let val = item.labelName;
-        resultObj[key] = val;
-    })
-    return resultObj;
-}
 
 // 处理分类标签
 Utils.obj4 = (list) => {
@@ -112,16 +102,6 @@ Utils.obj4 = (list) => {
     return resultObj;
 }
 
-// 处理分类标签
-Utils.obj5 = (list) => {
-    let resultObj = {};
-    list.forEach((item, index) => {
-        let key = item.aniSortId;
-        let val = item.labelName;
-        resultObj[key] = val;
-    })
-    return resultObj;
-}
 
 
 // 获取菜单配置
@@ -157,6 +137,16 @@ Utils.getMenuInfo = (str) => {
 
   return temp;
 }
+
+Utils.dealMomentTime = (date_format) => {
+  let year = date_format.getFullYear()
+  let month = date_format.getMonth() + 1
+  if (month < 10) month = '0' + month
+  let mydate = date_format.getDate()
+  if (mydate < 10) mydate = '0' + mydate
+  let time = `${year}-${month}-${mydate}`
+  return time
+} 
 
 
 

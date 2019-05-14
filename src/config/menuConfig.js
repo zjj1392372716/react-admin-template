@@ -1,75 +1,147 @@
 // ================================================
 // 菜单配置
 // ================================================
-const menuList = [{
+
+let menuListConfig = {};
+
+// 学生身份
+menuListConfig.menuList1 = [{
     title: '首页',
     key: '/admin/home',
     iconType: 'home'
   },
   {
-    title: '新闻管理',
-    key: '/news',
+    title: '个人管理',
+    key: '/my',
     iconType: 'switcher',
     children: [{
-        title: '新闻分类',
-        key: '/admin/newsSort',
+        title: '个人信息',
+        key: '/admin/myInfo',
         iconType: 'tags'
       },
       {
-        title: '新闻管理',
-        key: '/admin/newsManage',
+        title: '我的成绩',
+        key: '/admin/myScore',
         iconType: 'switcher'
       }
     ]
   },
   {
-    title: '法律管理',
-    key: '/law',
+    title: '选课管理',
+    key: '/course1',
     iconType: 'security-scan',
     children: [{
-        title: '法律分类',
-        key: '/admin/lawSort',
+        title: '我的课表',
+        key: '/admin/mytimeable',
         iconType: 'tags'
       },
       {
-        title: '法律管理',
-        key: '/admin/lawManage',
+        title: '选课',
+        key: '/admin/SelectCourse',
         iconType: 'security-scan',
+      },
+      {
+        title: '退课',
+        key: '/admin/exitCourse',
+        iconType: 'security-scan',
+      }
+    ]
+  }
+];
+
+// 教师身份
+menuListConfig.menuList2 = [{
+    title: '首页',
+    key: '/admin/home',
+    iconType: 'home'
+  },
+  {
+    title: '个人管理',
+    key: '/my',
+    iconType: 'switcher',
+    children: [{
+        title: '我的信息',
+        key: '/admin/teacherInfo',
+        iconType: 'tags'
       }
     ]
   },
   {
-    title: '知识科普',
-    key: '/known',
-    iconType: 'read',
+    title: '任课管理',
+    key: '/course1',
+    iconType: 'security-scan',
     children: [{
-        title: '科普分类',
-        key: '/admin/knownSort',
-        iconType: 'tags',
+        title: '我的任课',
+        key: '/admin/mycourse',
+        iconType: 'tags'
       },
       {
-        title: '科普知识',
-        key: '/admin/knownScience',
-        iconType: 'read',
+        title: '我的学生',
+        key: '/admin/myStudent',
+        iconType: 'security-scan',
       },
       {
-        title: '科普动画分类管理',
-        key: '/admin/knownAnSortMs',
-        iconType: 'rocket'
+        title: '成绩录入',
+        key: '/admin/inResult',
+        iconType: 'security-scan',
+      }
+    ]
+  }
+];
+
+menuListConfig.menuList3 = [{
+    title: '首页',
+    key: '/admin/home',
+    iconType: 'home'
+  },
+  {
+    title: '角色管理',
+    key: '/admin/role',
+    iconType: 'tags'
+  },
+  {
+    title: '学生管理',
+    key: '/student',
+    iconType: 'switcher',
+    children: [{
+        title: '班级管理',
+        key: '/admin/class',
+        iconType: 'tags'
       },
       {
-        title: '科普动画管理',
-        key: '/admin/knownAnMs',
-        iconType: 'project'
+        title: '学生信息管理',
+        key: '/admin/studentInfo',
+        iconType: 'switcher'
+      }
+    ]
+  },
+  {
+    title: '教室管理',
+    key: '/admin/room',
+    iconType: 'tags'
+  },
+  {
+    title: '教师管理',
+    key: '/admin/teacher',
+    iconType: 'tags'
+  },
+  {
+    title: '课程管理',
+    key: '/course',
+    iconType: 'security-scan',
+    children: [{
+        title: '课程管理',
+        key: '/admin/courseMs',
+        iconType: 'tags'
       },
       {
-        title: '百姓讲堂',
-        key: '/admin/knownP',
-        iconType: 'book'
+        title: '选课管理',
+        key: '/admin/selectMs',
+        iconType: 'security-scan',
       }
     ]
   }
 ];
 
 
-export default menuList;
+export default menuListConfig;

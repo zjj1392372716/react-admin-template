@@ -33,9 +33,10 @@ class Header extends Component {
     }
   }
   componentWillMount () {
-    if(window.localStorage.getItem('username')) {
+
+    if(window.sessionStorage.getItem('USERNAME')) {
       this.setState({
-        username: window.localStorage.getItem('username')
+        username: window.sessionStorage.getItem('USERNAME')
       })
     }
     // 实时系统时间
@@ -117,7 +118,7 @@ class Header extends Component {
   }
 
   handleExit = () => {
-    window.localStorage.clear();
+    window.sessionStorage.clear();
     window.location.href = '/';
   }
 
